@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AnalyzerService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:9999/AnalyzerService?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:9999/AnalyzerService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:9999/AnalyzerService?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAnalyzerService_GetSupportedDataSources_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupportedDataSources" />
+  </wsdl:message>
+  <wsdl:message name="IAnalyzerService_GetSupportedDataSources_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupportedDataSourcesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalyzerService_GetSupportedAnalysisFlows_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupportedAnalysisFlows" />
+  </wsdl:message>
+  <wsdl:message name="IAnalyzerService_GetSupportedAnalysisFlows_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupportedAnalysisFlowsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalyzerService_Analyze_InputMessage">
+    <wsdl:part name="parameters" element="tns:Analyze" />
+  </wsdl:message>
+  <wsdl:message name="IAnalyzerService_Analyze_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AnalyzeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalyzerService_AnalyzeWithFlow_InputMessage">
+    <wsdl:part name="parameters" element="tns:AnalyzeWithFlow" />
+  </wsdl:message>
+  <wsdl:message name="IAnalyzerService_AnalyzeWithFlow_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AnalyzeWithFlowResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalyzerService_AnalyzeWithFlows_InputMessage">
+    <wsdl:part name="parameters" element="tns:AnalyzeWithFlows" />
+  </wsdl:message>
+  <wsdl:message name="IAnalyzerService_AnalyzeWithFlows_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AnalyzeWithFlowsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAnalyzerService">
+    <wsdl:operation name="GetSupportedDataSources">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAnalyzerService/GetSupportedDataSources" message="tns:IAnalyzerService_GetSupportedDataSources_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAnalyzerService/GetSupportedDataSourcesResponse" message="tns:IAnalyzerService_GetSupportedDataSources_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupportedAnalysisFlows">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAnalyzerService/GetSupportedAnalysisFlows" message="tns:IAnalyzerService_GetSupportedAnalysisFlows_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAnalyzerService/GetSupportedAnalysisFlowsResponse" message="tns:IAnalyzerService_GetSupportedAnalysisFlows_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Analyze">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAnalyzerService/Analyze" message="tns:IAnalyzerService_Analyze_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAnalyzerService/AnalyzeResponse" message="tns:IAnalyzerService_Analyze_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AnalyzeWithFlow">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAnalyzerService/AnalyzeWithFlow" message="tns:IAnalyzerService_AnalyzeWithFlow_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAnalyzerService/AnalyzeWithFlowResponse" message="tns:IAnalyzerService_AnalyzeWithFlow_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AnalyzeWithFlows">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAnalyzerService/AnalyzeWithFlows" message="tns:IAnalyzerService_AnalyzeWithFlows_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAnalyzerService/AnalyzeWithFlowsResponse" message="tns:IAnalyzerService_AnalyzeWithFlows_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAnalyzerService" type="tns:IAnalyzerService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSupportedDataSources">
+      <soap:operation soapAction="http://tempuri.org/IAnalyzerService/GetSupportedDataSources" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupportedAnalysisFlows">
+      <soap:operation soapAction="http://tempuri.org/IAnalyzerService/GetSupportedAnalysisFlows" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Analyze">
+      <soap:operation soapAction="http://tempuri.org/IAnalyzerService/Analyze" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AnalyzeWithFlow">
+      <soap:operation soapAction="http://tempuri.org/IAnalyzerService/AnalyzeWithFlow" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AnalyzeWithFlows">
+      <soap:operation soapAction="http://tempuri.org/IAnalyzerService/AnalyzeWithFlows" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AnalyzerService">
+    <wsdl:port name="BasicHttpBinding_IAnalyzerService" binding="tns:BasicHttpBinding_IAnalyzerService">
+      <soap:address location="http://localhost:9999/AnalyzerService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,11 @@
+C:\Projects\OPAnalyzer\OPAnalyzerHost\bin\Debug\OPAnalyzerHost.exe.config
+C:\Projects\OPAnalyzer\OPAnalyzerHost\bin\Debug\OPAnalyzerHost.exe
+C:\Projects\OPAnalyzer\OPAnalyzerHost\bin\Debug\OPAnalyzerHost.pdb
+C:\Projects\OPAnalyzer\OPAnalyzerHost\bin\Debug\Microsoft.Practices.Unity.dll
+C:\Projects\OPAnalyzer\OPAnalyzerHost\bin\Debug\Newtonsoft.Json.dll
+C:\Projects\OPAnalyzer\OPAnalyzerHost\bin\Debug\Newtonsoft.Json.xml
+C:\Projects\OPAnalyzer\OPAnalyzerHost\obj\Debug\OPAnalyzerHost.csprojAssemblyReference.cache
+C:\Projects\OPAnalyzer\OPAnalyzerHost\obj\Debug\OPAnalyzerHost.csproj.CoreCompileInputs.cache
+C:\Projects\OPAnalyzer\OPAnalyzerHost\obj\Debug\OPAnalyzerHost.csproj.CopyComplete
+C:\Projects\OPAnalyzer\OPAnalyzerHost\obj\Debug\OPAnalyzerHost.exe
+C:\Projects\OPAnalyzer\OPAnalyzerHost\obj\Debug\OPAnalyzerHost.pdb

@@ -1,0 +1,7 @@
+C:\Projects\OPAnalyzer\OPAnalyzerClient\bin\Debug\OPAnalyzerClient.exe.config
+C:\Projects\OPAnalyzer\OPAnalyzerClient\bin\Debug\OPAnalyzerClient.exe
+C:\Projects\OPAnalyzer\OPAnalyzerClient\bin\Debug\OPAnalyzerClient.pdb
+C:\Projects\OPAnalyzer\OPAnalyzerClient\obj\Debug\OPAnalyzerClient.csprojAssemblyReference.cache
+C:\Projects\OPAnalyzer\OPAnalyzerClient\obj\Debug\OPAnalyzerClient.csproj.CoreCompileInputs.cache
+C:\Projects\OPAnalyzer\OPAnalyzerClient\obj\Debug\OPAnalyzerClient.exe
+C:\Projects\OPAnalyzer\OPAnalyzerClient\obj\Debug\OPAnalyzerClient.pdb
