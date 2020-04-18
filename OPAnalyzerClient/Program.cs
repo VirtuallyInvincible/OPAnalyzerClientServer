@@ -18,13 +18,13 @@ namespace OPAnalyzerClient
 	        validAnalysisFlows.Select(kvp => $"{kvp.Key}: {kvp.Value}").ToList().ForEach(Console.WriteLine);
 	        Console.ReadLine();
 
-	        client.Analyze("GitHub").ToList().ForEach(Console.WriteLine);
+	        //client.Analyze("https://api.github.com/repos/highcharts/highcharts/commits").ToList().ForEach(Console.WriteLine);
+	        //Console.ReadLine();
+
+	        client.AnalyzeWithFlow("https://api.stackexchange.com/2.2/tags/singleton/faq?site=stackoverflow", 1).ToList().ForEach(Console.WriteLine);
 	        Console.ReadLine();
 
-	        client.AnalyzeWithFlow("StackOverflow", 1).ToList().ForEach(Console.WriteLine);
-	        Console.ReadLine();
-
-	        client.AnalyzeWithFlows("GitHub", new long[] { 1, 2 }).ToList().ForEach(Console.WriteLine);
+	        client.AnalyzeWithFlows("https://api.github.com/repos/highcharts/highcharts/commts", new long[] { 1, 2 }).ToList().ForEach(Console.WriteLine);
 	        Console.ReadLine();
 
 	        //client.Analyze("Rally");

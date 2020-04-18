@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ServiceModel;
+using System.Text.RegularExpressions;
 using OPAnalyzerHost.AnalysisFlows;
 using OPAnalyzerHost.DataSourceAnalyzers;
 

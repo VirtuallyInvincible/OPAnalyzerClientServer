@@ -9,12 +9,9 @@ namespace OPAnalyzerHost.DataSourceAnalyzers
 {
     internal class StackOverflowAnalyzer : IDataSourceAnalyzer
     {
-	    private const string HIGHCHARTS_URL = "https://api.stackexchange.com/2.2/tags/highcharts/faq?site=stackoverflow";
-
-
-        public string[] Analyze()
+	    public string[] Analyze(string dataSource)
         {
-	        JObject jsonData = GetHighchartsData();
+	        JObject jsonData = GetData(dataSource);
 	        return FilterData(jsonData);
         }
 
@@ -40,9 +37,9 @@ namespace OPAnalyzerHost.DataSourceAnalyzers
 	        return titles.ToArray();
         }
 
-        private JObject GetHighchartsData()
+        private JObject GetData(string dataSource)
         {
-	        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(HIGHCHARTS_URL);
+	        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(dataSource);
 	        request.AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip;
 	        HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 	        Stream responseStream = response?.GetResponseStream();

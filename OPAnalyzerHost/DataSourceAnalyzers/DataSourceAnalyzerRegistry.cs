@@ -1,32 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace OPAnalyzerHost.DataSourceAnalyzers
 {
     public class DataSourceAnalyzerRegistry : IDataSourceAnalyzerRegistry
     {
-	    private readonly IDictionary<string, IDataSourceAnalyzer> RegisteredDomainAnalyzers = new Dictionary<string, IDataSourceAnalyzer>();
+	    private readonly IDictionary<Regex, IDataSourceAnalyzer> RegisteredDataSourceAnalyzers = new Dictionary<Regex, IDataSourceAnalyzer>();
 
 
 	    public DataSourceAnalyzerRegistry()
 	    {
-		    RegisteredDomainAnalyzers.Add("GitHub", new GithubAnalyzer());
-		    RegisteredDomainAnalyzers.Add("StackOverflow", new StackOverflowAnalyzer());
+		    RegisteredDataSourceAnalyzers.Add(new Regex("https://api.github.com/repos/.+/.+/commits"), new GithubAnalyzer());
+		    RegisteredDataSourceAnalyzers.Add(new Regex($"https://api.stackexchange.com/2.2/tags/.+/faq{Regex.Escape("?")}site=stackoverflow"), new StackOverflowAnalyzer());
 	    }
 
 
-	    public string[] RunDataSourceAnalysis(string dataSourceName)
+	    public string[] RunDataSourceAnalysis(string dataSource)
 	    {
-		    if (!RegisteredDomainAnalyzers.TryGetValue(dataSourceName, out var domainAnalyzer))
+			Regex matchingDataSource = RegisteredDataSourceAnalyzers.Keys.FirstOrDefault(regex => regex.IsMatch(dataSource));
+		    if (matchingDataSource == null)
 		    {
-			    throw new Exception("Unsupported data source name.");
+			    throw new Exception("Unsupported data source.");
 		    }
-		    return domainAnalyzer.Analyze();
+
+		    try
+		    {
+			    return RegisteredDataSourceAnalyzers[matchingDataSource].Analyze(dataSource);
+		    }
+		    catch (Exception e)
+		    {
+			    throw new Exception($"An exception has occurred: {e}");
+		    }
 	    }
 
         public ICollection<string> GetSupportedDataSources()
         {
-            return RegisteredDomainAnalyzers.Keys;
+            return RegisteredDataSourceAnalyzers.Keys.Select(regex => regex.ToString()).ToList();
         }
     }
 }

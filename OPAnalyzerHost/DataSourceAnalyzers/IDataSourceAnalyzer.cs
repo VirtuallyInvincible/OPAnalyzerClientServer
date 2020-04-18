@@ -2,6 +2,6 @@
 {
     public interface IDataSourceAnalyzer
     {
-	    string[] Analyze();
+	    string[] Analyze(string dataSource);
     }
 }

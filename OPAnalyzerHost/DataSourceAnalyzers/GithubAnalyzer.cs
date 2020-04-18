@@ -7,12 +7,9 @@ namespace OPAnalyzerHost.DataSourceAnalyzers
 {
     internal class GithubAnalyzer : IDataSourceAnalyzer
     {
-	    private const string HIGHCHARTS_URL = "https://api.github.com/repos/highcharts/highcharts/commits";
-
-
-	    public string[] Analyze()
+	    public string[] Analyze(string dataSource)
         {
-	        JArray jsonData = GetHighchartsData();
+	        JArray jsonData = GetData(dataSource);
 	        return FilterData(jsonData);
         }
 
@@ -39,12 +36,12 @@ namespace OPAnalyzerHost.DataSourceAnalyzers
 	        return messages.ToArray();
         }
 
-        private JArray GetHighchartsData()
+        private JArray GetData(string dataSource)
         {
 	        using (var webClient = new WebClient())
 	        {
 		        webClient.Headers.Add(HttpRequestHeader.UserAgent, "OPAnalyzer");
-		        string responseData = webClient.DownloadString(HIGHCHARTS_URL);
+		        string responseData = webClient.DownloadString(dataSource);
 		        return JArray.Parse(responseData);
 	        }
         }
